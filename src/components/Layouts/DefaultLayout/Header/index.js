@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faShower } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
+import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import style from './Header.module.scss';
 import images from '~/assets/image';
@@ -13,7 +14,7 @@ function Header() {
    const [searchResult, setSearchResult] = useState([]);
    useEffect(() => {
       setTimeout(() => {
-         setSearchResult([2, 3]);
+         setSearchResult([]);
       }, 0);
    }, []);
    return (
@@ -48,7 +49,12 @@ function Header() {
                   </button>
                </div>
             </Tippy>
-            <div className={cx('actions')}></div>
+            <div className={cx('actions')}>
+               <Button primary disable>
+                  Log in
+               </Button>
+               <Button primary>Register</Button>
+            </div>
          </div>
       </header>
    );
