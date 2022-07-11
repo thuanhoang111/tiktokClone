@@ -7,10 +7,21 @@ import {
    faEarthAsia,
    faCircleQuestion,
    faKeyboard,
+   faFileUpload,
+   faUpload,
+   faCloudUpload,
+   faMessage,
+   faUser,
+   faCoins,
+   faGear,
+   faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
+import AvatarUser from '~/assets/image/MyGirlFriend.jpg';
 import { useEffect, useState } from 'react';
-import Tippy from '@tippyjs/react/headless';
+import HeadelessTippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
+import 'tippy.js/dist/tippy.css';
 
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -50,6 +61,7 @@ const MENU_ITEMS = [
    },
 ];
 function Header() {
+   const currentUser = true;
    const [searchResult, setSearchResult] = useState([]);
    useEffect(() => {
       setTimeout(() => {
@@ -66,13 +78,37 @@ function Header() {
             break;
       }
    };
+   const userMenu = [
+      {
+         icon: <FontAwesomeIcon icon={faUser} />,
+         title: 'View profile',
+         to: '/@Trang',
+      },
+      {
+         icon: <FontAwesomeIcon icon={faCoins} />,
+         title: 'Get coin',
+         to: '/coin',
+      },
+      {
+         icon: <FontAwesomeIcon icon={faGear} />,
+         title: 'Settings',
+         to: '/settings',
+      },
+      ...MENU_ITEMS,
+      {
+         icon: <FontAwesomeIcon icon={faSignOut} />,
+         title: 'Log out',
+         to: '/logout',
+         separate: true,
+      },
+   ];
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
             <div className={cx('logo')}>
                <img src={images.logo} alt="ko có hình " />
             </div>
-            <Tippy
+            <HeadelessTippy
                interactive
                visible={searchResult.length > 0}
                render={(attrs) => (
@@ -97,14 +133,35 @@ function Header() {
                      <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </button>
                </div>
-            </Tippy>
+            </HeadelessTippy>
             <div className={cx('actions')}>
-               <Button>Upload</Button>
-               <Button primary>Log in</Button>
-               <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                  <button className={cx('more-btn')}>
-                     <FontAwesomeIcon icon={faEllipsisVertical} />
-                  </button>
+               {currentUser ? (
+                  <>
+                     <Tippy delay={(0, 200)} content="upload video" trigger="click">
+                        <button className={cx('action-btn')}>
+                           <FontAwesomeIcon icon={faCloudUpload} />
+                        </button>
+                     </Tippy>
+                     {/* <Tippy content="messenger">
+                        <button className={cx('action-btn')}>
+                           <FontAwesomeIcon icon={faMessage} />
+                        </button>
+                     </Tippy> */}
+                  </>
+               ) : (
+                  <>
+                     <Button>Upload</Button>
+                     <Button primary>Log in</Button>
+                  </>
+               )}
+               <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                  {currentUser ? (
+                     <img className={cx('user-avatar')} alt="Trương Hồng Ngọc Trang" src={AvatarUser} />
+                  ) : (
+                     <button className={cx('more-btn')}>
+                        <FontAwesomeIcon icon={faEllipsisVertical} />
+                     </button>
+                  )}
                </Menu>
             </div>
          </div>
