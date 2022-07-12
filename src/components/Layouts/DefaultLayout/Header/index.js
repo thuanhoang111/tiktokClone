@@ -7,10 +7,6 @@ import {
    faEarthAsia,
    faCircleQuestion,
    faKeyboard,
-   faFileUpload,
-   faUpload,
-   faCloudUpload,
-   faMessage,
    faUser,
    faCoins,
    faGear,
@@ -29,6 +25,8 @@ import style from './Header.module.scss';
 import images from '~/assets/image';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 const cx = classNames.bind(style);
 const MENU_ITEMS = [
    {
@@ -139,14 +137,19 @@ function Header() {
                   <>
                      <Tippy delay={(0, 200)} content="upload video" trigger="click">
                         <button className={cx('action-btn')}>
-                           <FontAwesomeIcon icon={faCloudUpload} />
+                           <UploadIcon />
                         </button>
                      </Tippy>
-                     {/* <Tippy content="messenger">
+                     <Tippy content="messenger">
                         <button className={cx('action-btn')}>
-                           <FontAwesomeIcon icon={faMessage} />
+                           <MessageIcon />
                         </button>
-                     </Tippy> */}
+                     </Tippy>
+                     <Tippy content="messenger">
+                        <button className={cx('action-btn')}>
+                           <InboxIcon />
+                        </button>
+                     </Tippy>
                   </>
                ) : (
                   <>
@@ -156,7 +159,15 @@ function Header() {
                )}
                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                   {currentUser ? (
-                     <img className={cx('user-avatar')} alt="Trương Hồng Ngọc Trang" src={AvatarUser} />
+                     <Image
+                        className={cx('user-avatar')}
+                        alt="Trương Hồng Ngọc Trang"
+                        src={AvatarUser}
+                        // đoạn dưới dùng để lấy icon user Fallback(ko có sẽ lấy mặc định)
+                        fallback={
+                           'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/46b7a83ce9b1a2be879654e46d46cdec~c5_100x100.jpeg?x-expires=1657818000&x-signature=5hUcLp6sjdV7prNaNjqQkeUyE%2BM%3D'
+                        }
+                     />
                   ) : (
                      <button className={cx('more-btn')}>
                         <FontAwesomeIcon icon={faEllipsisVertical} />

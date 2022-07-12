@@ -101,10 +101,12 @@
    background-color: transparent;
    font-size: 2.2rem;
    color: #161823;
-   padding: 4px 15px;
+   padding: 4px 10px;
    cursor: pointer;
+   display: flex;
 }
 .user-avatar {
+   margin-left: 10px;
    width: 32px;
    height: 32px;
    border-radius: 50%;
