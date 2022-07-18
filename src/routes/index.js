@@ -15,7 +15,7 @@ const publicRouter = [
       component: Following,
    },
    {
-      path: '/profile',
+      path: '/@:nickname',
       component: Profile,
    },
    {
