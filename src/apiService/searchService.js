@@ -8,10 +8,6 @@ export const search = async (q, type = 'less') => {
             type: type,
          },
       });
-      setSearchResult(res.data);
-      setLoading(false);
-   } catch (error) {
-      setLoading(false);
-   }
+      return res.data;
+   } catch (error) {}
 };
-fetchApi();

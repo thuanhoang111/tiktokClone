@@ -30,10 +30,9 @@ function Search() {
          setLoading(true);
          const result = await searchService.search(debounce);
          setSearchResult(result);
-         setLoading(true);
+         setLoading(false);
       };
       fetchApi();
-      setLoading(true);
    }, [debounce]);
 
    const HandleClear = () => {
@@ -44,6 +43,17 @@ function Search() {
    };
    const handleHideResult = () => {
       setShowResult(false);
+   };
+   // ko cho dấu cách ở đầu ô input
+   const handleChange = (e) => {
+      const searchValue = e.target.value;
+      if (!searchValue.startsWith(' ') || searchValue.trim()) {
+         setSearchValue(searchValue);
+      }
+   };
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
    };
    return (
       <HeaderlessTippy
@@ -68,12 +78,7 @@ function Search() {
                value={searchValue}
                placeholder="search accounts and video"
                spellCheck={false}
-               onChange={(e) => {
-                  if (e.nativeEvent.data === ' ' && searchValue === '') {
-                     return false;
-                  }
-                  setSearchValue(e.target.value);
-               }}
+               onChange={(e) => handleChange(e)}
                onFocus={() => {
                   setShowResult(true);
                }}
@@ -84,7 +89,7 @@ function Search() {
                </button>
             )}
             {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}{' '}
-            <button className={cx('search-btn')}>
+            <button className={cx('search-btn')} onMouseDown={(e) => handleSubmit(e)}>
                <SearchIcon />
             </button>
          </div>

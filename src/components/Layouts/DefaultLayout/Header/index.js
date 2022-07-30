@@ -13,6 +13,7 @@ import AvatarUser from '~/assets/image/MyGirlFriend.jpg';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 import Button from '~/components/Button';
 import style from './Header.module.scss';
@@ -22,6 +23,8 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../../Search';
+// config đường dẫn của tự tạo
+import routes from '~/config/routes';
 const cx = classNames.bind(style);
 const MENU_ITEMS = [
    {
@@ -93,9 +96,9 @@ function Header() {
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
-            <div className={cx('logo')}>
-               <img src={images.logo} alt="ko có hình " />
-            </div>
+            <Link to={routes.home} className={cx('logo')}>
+               <img src={images.logo} alt="Tiktok" />
+            </Link>
             {/* search */}
             <Search />
             <div className={cx('actions')}>

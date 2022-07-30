@@ -1,30 +1,33 @@
-// public router
+import routes from '~/config/routes';
+// pages
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import HeaderOnly from '~/components/Layouts/HeaderOnly';
 
+// public router
+
 const publicRouter = [
    {
-      path: '/',
+      path: routes.home,
       component: Home,
    },
    {
-      path: '/following',
+      path: routes.following,
       component: Following,
    },
    {
-      path: '/@:nickname',
+      path: routes.profile,
       component: Profile,
    },
    {
-      path: '/upload',
+      path: routes.upload,
       component: Upload,
       layout: null,
    },
    {
-      path: '/upload1',
+      path: routes.search,
       component: Upload,
       layout: HeaderOnly,
    },
