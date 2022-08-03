@@ -24,7 +24,8 @@ import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../../Search';
 // config đường dẫn của tự tạo
-import routes from '~/config/routes';
+import config from '~/config';
+// import config from './../../../config/index';
 const cx = classNames.bind(style);
 const MENU_ITEMS = [
    {
@@ -96,7 +97,7 @@ function Header() {
    return (
       <header className={cx('wrapper')}>
          <div className={cx('inner')}>
-            <Link to={routes.home} className={cx('logo')}>
+            <Link to={config.routes.home} className={cx('logo')}>
                <img src={images.logo} alt="Tiktok" />
             </Link>
             {/* search */}

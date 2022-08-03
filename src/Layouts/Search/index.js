@@ -4,7 +4,7 @@ import HeaderlessTippy from '@tippyjs/react/headless';
 import { faCircleXmark, faSpinner, faMagnifyingGlass, faL } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
-import * as searchService from '~/apiService/searchService';
+import * as searchService from '~/services/searchService';
 import style from './Search.module.scss';
 import { SearchIcon } from '~/components/Icons';
 import { useEffect, useState, useRef } from 'react';

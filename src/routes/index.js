@@ -1,33 +1,34 @@
-import routes from '~/config/routes';
+// import config from '~/config';
 // pages
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
-import HeaderOnly from '~/components/Layouts/HeaderOnly';
+import HeaderOnly from '~/Layouts/HeaderOnly';
+import config from './../config/index';
 
 // public router
 
 const publicRouter = [
    {
-      path: routes.home,
+      path: config.routes.home,
       component: Home,
    },
    {
-      path: routes.following,
+      path: config.routes.following,
       component: Following,
    },
    {
-      path: routes.profile,
+      path: config.routes.profile,
       component: Profile,
    },
    {
-      path: routes.upload,
+      path: config.routes.upload,
       component: Upload,
       layout: null,
    },
    {
-      path: routes.search,
+      path: config.routes.search,
       component: Upload,
       layout: HeaderOnly,
    },
