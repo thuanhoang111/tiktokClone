@@ -3,6 +3,8 @@
 -Tippy
 -file config Pretties
 -fontawesome 
+-propTypes:giúp kiểm tra các kiểu dữ liệu của các prop và được kiểm tra luôn khi chương trình đang chạy(có vấn để xảy ra thì sẽ warning )
+đã được cài sẳn trong create-react-app   
 dev:
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",

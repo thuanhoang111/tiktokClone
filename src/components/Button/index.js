@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import style from './Button.module.scss';
+import { PropTypes } from 'prop-types';
 
 const cx = classNames.bind(style);
 
@@ -50,5 +51,8 @@ function Button({
       </Comp>
    );
 }
-
+// kiểm tra kiểu dữ liệu của children
+Button.propTypes = {
+   children: PropTypes.node.isRequired,
+};
 export default Button;
