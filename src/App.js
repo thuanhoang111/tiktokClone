@@ -1,35 +1,35 @@
 import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRouter } from '~/routes/index';
-import DefaultLayout from '~/Layouts/DefaultLayout';
+import { publicRouter } from '~/routes';
+import DefaultLayout from '~/Layouts/DefaultLayout/DefaultLayout';
 function App() {
-    return (
-        <Router>
-            <div>
-                <Routes>
-                    {publicRouter.map((router, index) => {
-                        const Page = router.component;
-                        let Layout = DefaultLayout;
-                        if (router.layout) {
-                            Layout = router.layout;
-                        } else if (router.layout === null) {
-                            Layout = Fragment;
+   return (
+      <Router>
+         <div>
+            <Routes>
+               {publicRouter.map((router, index) => {
+                  const Page = router.component;
+                  let Layout = DefaultLayout;
+                  if (router.layout) {
+                     Layout = router.layout;
+                  } else if (router.layout === null) {
+                     Layout = Fragment;
+                  }
+                  return (
+                     <Route
+                        key={index}
+                        path={router.path}
+                        element={
+                           <Layout>
+                              <Page />
+                           </Layout>
                         }
-                        return (
-                            <Route
-                                key={index}
-                                path={router.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
-                            ></Route>
-                        );
-                    })}
-                </Routes>
-            </div>
-        </Router>
-    );
+                     ></Route>
+                  );
+               })}
+            </Routes>
+         </div>
+      </Router>
+   );
 }
 export default App;
