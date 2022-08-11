@@ -14,26 +14,26 @@ const cx = classNames.bind(style);
 function Search() {
    const [searchValue, setSearchValue] = useState('');
    const [searchResult, setSearchResult] = useState([]);
-   const [showResult, setShowResult] = useState(true);
+   const [showResult, setShowResult] = useState(false);
    const [loading, setLoading] = useState(false);
 
    const searchRef = useRef();
-   const debounce = useDebounce(searchValue, 500);
+   const debouncedValue = useDebounce(searchValue, 500);
 
    useEffect(() => {
-      if (!debounce.trim()) {
+      if (!debouncedValue.trim()) {
          setSearchResult('');
          return;
       }
 
       const fetchApi = async () => {
          setLoading(true);
-         const result = await searchService.search(debounce);
+         const result = await searchService.search(debouncedValue);
          setSearchResult(result);
          setLoading(false);
       };
       fetchApi();
-   }, [debounce]);
+   }, [debouncedValue]);
 
    const HandleClear = () => {
       setSearchValue('');
@@ -66,8 +66,9 @@ function Search() {
                   <PopperWrapper>
                      <h4 className={cx('search-title')}>Accounts</h4>
                      {searchResult.length > 0 &&
+                        // cần tối ưu lại khi sử dụng vòng map (sử dụng useMemo tránh render lại searchValue)
                         searchResult.map((value) => {
-                           return <AccountItem key={value.id} data={value} />;
+                           return <AccountItem key={value.id} data={value} onClick={() => handleHideResult(false)} />;
                         })}
                   </PopperWrapper>
                </div>
