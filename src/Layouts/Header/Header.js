@@ -22,7 +22,7 @@ import images from '~/assets/image';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
-import Search from '../../Search';
+import Search from '../Search';
 // config đường dẫn của tự tạo
 import config from '~/config';
 // import config from './../../../config/index';

@@ -1,5 +1,5 @@
-import Header from './Header';
-import Sidebar from './Sidebar';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
 import classnames from 'classnames/bind';
 import styte from './DefaultLayout.module.scss';
 import PropTypes from 'prop-types';
