@@ -1,10 +1,10 @@
 import Header from '../Header';
 import Sidebar from '../Sidebar';
 import classnames from 'classnames/bind';
-import styte from './DefaultLayout.module.scss';
+import style from './DefaultLayout.module.scss';
 import PropTypes from 'prop-types';
 function DefaultLayout({ children }) {
-   const cx = classnames.bind(styte);
+   const cx = classnames.bind(style);
    return (
       <div className={cx('wrapper')}>
          <Header />
