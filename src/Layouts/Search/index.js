@@ -82,6 +82,7 @@ function Search() {
                   placeholder="search accounts and video"
                   spellCheck={false}
                   onChange={(e) => handleChange(e)}
+                  autoComplete="off"
                   onFocus={() => {
                      setShowResult(true);
                   }}
