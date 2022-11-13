@@ -20,6 +20,7 @@ function SuggestedAccount({ label, data = [], onSeeAll }) {
       </div>
    );
 }
+
 SuggestedAccount.protoTypes = {
    label: PropTypes.string.isRequired,
    data: PropTypes.array,
