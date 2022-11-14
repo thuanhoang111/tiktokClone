@@ -4,5 +4,8 @@
    margin-left: -21px;
    position: fixed;
    height: 700px;
-   overflow-y: scroll;
+   overflow-y: hidden;
+   &:hover {
+      overflow-y: scroll;
+   }
 }

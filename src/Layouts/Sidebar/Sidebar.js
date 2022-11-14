@@ -21,6 +21,7 @@ const PER_PAGE = 5;
 function Sidebar() {
    const [page, setPage] = useState(INIT_PAGE);
    const [suggestedUser, setSuggestedUser] = useState([]);
+
    useEffect(() => {
       userService
          .getSuggested({ page, perPage: PER_PAGE })
@@ -49,6 +50,7 @@ function Sidebar() {
          </Menu>
          <SuggestedAccount label={'Suggested accounts'} data={suggestedUser} onSeeAll={handleSeeAll} />
          {/* <SuggestedAccount label={'following accounts'} /> */}
+         <SuggestedAccount label={'Following accounts'} data={suggestedUser} onSeeAll={handleSeeAll} />
       </aside>
    );
 }

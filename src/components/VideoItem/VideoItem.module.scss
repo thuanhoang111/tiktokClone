@@ -1,0 +1,84 @@
+.wrapper {
+   --width-video-item: 692px;
+
+   padding-top: 20px;
+   max-width: var(--width-video-item);
+}
+.video-infor {
+}
+.user-infor {
+   display: flex;
+   flex-direction: row;
+   position: relative;
+}
+.user-avatar {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   object-fit: cover;
+}
+.user-infor-header-name {
+   display: flex;
+   flex-direction: row;
+   cursor: pointer;
+   box-sizing: border-box;
+}
+.user-infor-header {
+   padding-left: 20px;
+}
+.nickname {
+   font-weight: 700;
+   font-size: 1.8rem;
+   margin-right: 4px;
+   text-rendering: optimizeSpeed;
+}
+.name {
+   font-size: 1.4rem;
+   font-weight: 400;
+   text-align: center;
+   margin-top: 4px;
+}
+.description {
+   font-size: 1.6rem;
+}
+.hashtag {
+   display: flex;
+   flex-direction: row;
+}
+.hashtagItem {
+   font-weight: 600;
+   font-size: 1.6rem;
+   line-height: 22px;
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+.btn-following {
+   position: absolute;
+   top: 28px;
+   right: -50px;
+}
+.music-video-infor {
+   font-weight: 600;
+   font-size: 1.6rem;
+   &:hover {
+      text-decoration: underline;
+   }
+}
+.music-video-infor-name {
+   padding-left: 10px;
+}
+
+.video-view {
+   height: calc(450px + ((100vw - 768px) / 1152) * 100);
+   position: relative;
+}
+.video-view-item {
+   left: 50px;
+   position: relative;
+   justify-items: center;
+   border-radius: 10px;
+   width: fit-content;
+   height: 100%;
+}
