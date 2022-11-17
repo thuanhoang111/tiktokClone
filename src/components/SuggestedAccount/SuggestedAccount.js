@@ -6,7 +6,6 @@ import styles from './SuggestedAccount.module.scss';
 import AccountItem from './AccountItem.js';
 const cx = classNames.bind(styles);
 function SuggestedAccount({ label, data = [], onSeeAll }) {
-   console.log(data);
    return (
       <div className={cx('wrapper')}>
          <p className={cx('label')}>{label}</p>

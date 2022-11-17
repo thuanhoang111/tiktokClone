@@ -1,15 +1,17 @@
 .wrapper {
    --width-video-item: 692px;
-
-   padding-top: 20px;
+   padding: 50px 0px 0px 12px;
    max-width: var(--width-video-item);
 }
 .video-infor {
+   position: relative;
 }
 .user-infor {
    display: flex;
    flex-direction: row;
    position: relative;
+   min-width: 746px;
+   max-width: 746px;
 }
 .user-avatar {
    width: 56px;
@@ -31,6 +33,9 @@
    font-size: 1.8rem;
    margin-right: 4px;
    text-rendering: optimizeSpeed;
+   &:hover {
+      text-decoration: underline;
+   }
 }
 .name {
    font-size: 1.4rem;
@@ -39,7 +44,9 @@
    margin-top: 4px;
 }
 .description {
+   width: 500px;
    font-size: 1.6rem;
+   font-display: swap;
 }
 .hashtag {
    display: flex;
@@ -57,7 +64,7 @@
 .btn-following {
    position: absolute;
    top: 28px;
-   right: -50px;
+   right: 50px;
 }
 .music-video-infor {
    font-weight: 600;
@@ -72,6 +79,7 @@
 
 .video-view {
    height: calc(450px + ((100vw - 768px) / 1152) * 100);
+
    position: relative;
 }
 .video-view-item {
@@ -79,6 +87,51 @@
    position: relative;
    justify-items: center;
    border-radius: 10px;
-   width: fit-content;
+   width: min-content;
+   max-width: 300px;
    height: 100%;
+   background-color: black;
+}
+.reaction-video {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   bottom: 0px;
+   right: 280px;
+}
+.reaction-video-item {
+   // position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 50px;
+   height: 72px;
+   text-align: center;
+}
+.reaction-icon {
+   height: 48px;
+   width: 48px;
+   background-color: rgba(22, 24, 35, 0.06);
+   border-radius: 50%;
+   color: var(--black);
+   &:active {
+      background-color: rgba(22, 24, 35, 0.14);
+   }
+}
+.reaction-text {
+   color: rgba(22, 24, 35, 0.75);
+   font-size: 1.2rem;
+   line-height: 17px;
+   text-align: center;
+   height: 20px;
+}
+.reaction-icon-liked {
+   height: 48px;
+   width: 48px;
+   background-color: rgba(22, 24, 35, 0.06);
+   border-radius: 50%;
+   color: var(--primary);
+   &:active {
+      background-color: rgba(22, 24, 35, 0.14);
+   }
 }
