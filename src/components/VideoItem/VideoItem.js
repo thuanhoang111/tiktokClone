@@ -15,7 +15,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useState, useRef, forwardRef } from 'react';
 import { InView } from 'react-intersection-observer';
-import { useDebounce } from '~/Hooks';
+// import images from '~/assets/image';
+import Image from '../Image';
 
 const cx = classNames.bind(styles);
 function VideoItem({ data }) {
@@ -56,7 +57,8 @@ function VideoItem({ data }) {
       <div className={cx('wrapper')}>
          <div className={cx('video-infor')}>
             <div className={cx('user-infor')}>
-               <img className={cx('user-avatar')} src={user.avatar} />
+               {/* <img className={cx('user-avatar')} src={user.avatar ? user.avatar : images.noImage} /> */}
+               <Image className={cx('user-avatar')} src={user.avatar} />
                <div className={cx('user-infor-header')}>
                   <div className={cx('user-infor-header-name')}>
                      <p className={cx('nickname')}>{user.nickname}</p>

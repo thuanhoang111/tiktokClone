@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## how to setup project before start
+
+// clone project
+CMD : `git clone https://github.com/thuanhoang111/tiktokClone.git`
+// install lib and framework in project
+Cmd :`npm i`
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,3 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## screen_main
+
+![Screen_main](./src/assets/image/Screenshot%202022-11-21%20195716.png?raw=true 'Screen_Main')

@@ -3,14 +3,14 @@ import classNames from 'classnames';
 import styles from './Image.module.scss';
 import images from '~/assets/image';
 import PropTypes from 'prop-types';
-const Image = forwardRef(({ classname, src, alt, fallback: customFallback = images.noImage, ...props }, ref) => {
+const Image = forwardRef(({ className, src, alt, fallback: customFallback = images.noImage, ...props }, ref) => {
    const [fallback, setFallback] = useState('');
    const handleError = () => {
       setFallback(customFallback);
    };
    return (
       <img
-         className={classNames(styles.wrapper, classname)}
+         className={classNames(styles.wrapper, className)}
          ref={ref}
          src={fallback || src}
          alt={alt}
@@ -20,7 +20,7 @@ const Image = forwardRef(({ classname, src, alt, fallback: customFallback = imag
    );
 });
 Image.propTypes = {
-   classname: PropTypes.string,
+   className: PropTypes.string,
    src: PropTypes.string,
    alt: PropTypes.string,
    fallback: PropTypes.string,
