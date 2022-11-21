@@ -92,7 +92,7 @@ function Search() {
                      <FontAwesomeIcon icon={faCircleXmark} onClick={HandleClear} />
                   </button>
                )}
-               {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}{' '}
+               {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                <button className={cx('search-btn')} onMouseDown={(e) => handleSubmit(e)}>
                   <SearchIcon />
                </button>

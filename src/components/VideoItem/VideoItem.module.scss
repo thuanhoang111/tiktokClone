@@ -1,7 +1,7 @@
 .wrapper {
-   --width-video-item: 692px;
-   padding: 50px 0px 0px 12px;
+   padding: 20px 0px 0px 12px;
    max-width: var(--width-video-item);
+   min-height: var(--height-video-item);
 }
 .video-infor {
    position: relative;
@@ -91,6 +91,10 @@
    max-width: 300px;
    height: 100%;
    background-color: black;
+   &:hover ~ .video-btn {
+      transition: ease-in-out 0.4s;
+      opacity: 1;
+   }
 }
 .reaction-video {
    position: absolute;
@@ -133,5 +137,42 @@
    color: var(--primary);
    &:active {
       background-color: rgba(22, 24, 35, 0.14);
+   }
+}
+.video-btn {
+   color: aliceblue;
+   position: absolute;
+   bottom: 35px;
+   left: 75px;
+   opacity: 0;
+   max-width: 240px;
+   min-width: 240px;
+   display: flex;
+   justify-content: space-between;
+   &:hover {
+      transition: ease-in-out 0.4s;
+      opacity: 1;
+   }
+}
+.btn-volume-video {
+   width: 24px;
+   position: relative;
+   &:hover > .video-control {
+      transition: ease-in-out 0.4s;
+      opacity: 1;
+   }
+}
+.btn-play-video {
+   width: 24px;
+}
+.video-control {
+   transform: rotate(270deg);
+   position: absolute;
+   opacity: 0;
+   bottom: 85px;
+   right: -50px;
+   &:hover {
+      transition: ease-in-out 0.4s;
+      opacity: 1;
    }
 }
